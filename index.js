@@ -12,9 +12,12 @@ app.post("/api/transactions", async (req, res) => {
   console.log("Received transactions from Website 1:", transactions);
 
   try {
-    await axios.post("http://localhost:5002/api/display-transactions", {
-      transactions,
-    });
+    await axios.post(
+      "https://trading-protocol-website3-backend.onrender.com/api/display-transactions",
+      {
+        transactions,
+      }
+    );
     res.status(200).json({ message: "Transactions forwarded!" });
   } catch (error) {
     console.error("Error forwarding transactions:", error);
